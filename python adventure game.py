@@ -121,6 +121,10 @@ def main_game():
         if keyboard.is_pressed("esc"):
             print("Game ended by user.")
             break
+
+        if kills == 5:
+            print("You won")
+            break
     
     print("")
     print_pause("Your score: " + str(score))
