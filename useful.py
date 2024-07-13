@@ -36,8 +36,9 @@ def print_pause(string:str):
     print(string)
     time.sleep(1.6)
 
-def print_pause_color(string: str, color: str):
+def colored_text(string: str, color: str):
     print("")
+    color = color.lower()
     if color == "black":
         print(colors.BLACK + string + colors.END)
     elif color == "red":
