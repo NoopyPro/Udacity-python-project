@@ -57,23 +57,23 @@ def colored_text(string: str, color: str):
         print(colors.CYAN + string + colors.END)
     elif color == "white":
         print(colors.WHITE + string + colors.END)
-    elif color == "light_gray":
+    elif color == "light gray":
         print(colors.LIGHT_GRAY + string + colors.END)
-    elif color == "dark_gray":
+    elif color == "dark gray":
         print(colors.DARK_GRAY + string + colors.END)
-    elif color == "light_red":
+    elif color == "light red":
         print(colors.LIGHT_RED + string + colors.END)
-    elif color == "light_green":
+    elif color == "light green":
         print(colors.LIGHT_GREEN + string + colors.END)
     elif color == "yellow":
         print(colors.YELLOW + string + colors.END)
-    elif color == "light_blue":
+    elif color == "light blue":
         print(colors.LIGHT_BLUE + string + colors.END)
-    elif color == "light_purple":
+    elif color == "light purple":
         print(colors.LIGHT_PURPLE + string + colors.END)
-    elif color == "light_cyan":
+    elif color == "light cyan":
         print(colors.LIGHT_CYAN + string + colors.END)
-    elif color == "light_white":
+    elif color == "light white":
         print(colors.LIGHT_WHITE + string + colors.END)
     elif color == "bold":
         print(colors.BOLD + string + colors.END)
@@ -90,5 +90,7 @@ def colored_text(string: str, color: str):
     elif color == "crossed":
         print(colors.CROSSED + string + colors.END)
     elif color == "reset":
+        print(string + colors.END)
+    else:
         print(string + colors.END)
     time.sleep(1.6)
