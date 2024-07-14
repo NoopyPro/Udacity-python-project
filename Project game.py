@@ -1,32 +1,12 @@
 # Imports modules.
 import useful
 import random
+import time
 
-
-# Code for attacking.
-def fight():
-    useful.colored_text("'The troll raises his fist to attack what do you do?'","yellow")
-    useful.print_pause("(1)Dodge.")
-    useful.print_pause("(2)Attack with the small knife.")
-    useful.print_pause("(3)Run.")
-    answer = input("(1,2,3): ").lower()
-    if answer == "1":
-        useful.colored_text("'You attempt to dodge the troll's attack'","yellow")
-        useful.colored_text("'But it's too big and your crushed and die instantly.'","yellow")
-    elif answer == "2":
-        useful.colored_text("'You swing your knife with all of your strength'","yellow")
-        useful.colored_text("'But it breaks not making a dent and you're crushed.'","yellow")
-    elif answer == "3":
-        useful.colored_text("'You turn around and run'","yellow")
-        useful.colored_text("'And you manage to leave the troll's cave'","yellow")
-        useful.colored_text("'You return to the village'","yellow")
-        useful.colored_text("'But instead of a warm welcome you're faced with a trial to be executed.'","yellow")
-        useful.colored_text("'days later you are executed due to leaving the quest you had accepted'","yellow")
-    else:
-        pass
 
 # Main game code.
 def main_game():
+    # Game opening.
     useful.colored_text("'Your a hero that travels the land looking for work'","yellow")
     useful.colored_text("'Having no food you take any jobs you can'","yellow")
     useful.colored_text("'You're asked to deal with a troll near a village'","yellow")
@@ -38,10 +18,27 @@ def main_game():
     useful.colored_text("Troll:'if you answer right then you'll play the next game'","green")
     useful.colored_text("Troll:'if you answer wrong I'll kill you'","green")
     useful.colored_text("Troll:'Okay,ready...'","green")
+
+    # Riddles.
+    riddles = [
+    {"question": "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
+    "options": ["(1) Echo", "(2) Whisper", "(3) Sound"],
+    "answer": "1"},
+                    
+    {"question": "What has keys but can't open locks?",
+    "options": ["(1) Keyboard", "(2) Locksmith", "(3) Piano"],
+    "answer": "1"},
+                    
+    {"question": "The more you take, the more you leave behind. What am I?",
+    "options": ["(1) Time", "(2) Footsteps", "(3) Memories"],
+    "answer": "2"}
+    ]
+
     game_phase = "number Q"
     game_running = True
-    game = random.choice(["questionare","fruit catch","taxes"])
-    current_question = 1
+    game = random.choice(["riddles","fruit catch","taxes"])
+    game = "fruit catch"
+
     # Main game loop.
     while game_running == True:
         # Number question game phase.
@@ -54,7 +51,7 @@ def main_game():
             answer = input("(1,2,3): ").lower()
             if answer == "1":
                 useful.colored_text("Troll:'No that's wrong.'","green")
-                fight()
+                useful.fight()
                 game_phase = "end"
             elif answer == "2" or answer == str(number):
                 useful.colored_text("Troll:'Yes that's right!, on to the next game.'","green")
@@ -62,65 +59,71 @@ def main_game():
             elif answer == "3":
                 useful.colored_text("Troll:'Abraham Lincoln, the 16th President of the United States,\nhe guided the nation through the Civil War\nand abolished slavery with the Emancipation Proclamation,\nultimately becoming an enduring symbol of freedom and equality.'","green")
                 useful.colored_text("Troll:'but he is not the correct answer.'","green")
-                fight()
+                useful.fight()
                 game_phase = "end"
             else:
                 useful.colored_text("Troll:'No that's wrong.'","green")
-                fight()
+                useful.fight()
                 game_phase = "end"
         # Starts the 1st game.
         elif game_phase == "1st game":
-            if game == "questionare":
-                useful.colored_text("Troll:'Now the game that we'll play is a questionare'","green")
-                useful.colored_text("Troll:'I'll ask you three questions'","green")
-                useful.colored_text("Troll:'if you get them all right I'll leave the village alone'","green")
-                useful.colored_text("Troll:'but if you get one wrong you die.'","green")
-                useful.colored_text("Troll:'Okay ready, here's the 1st question.'","green")
-                if current_question == 1:
+            if game == "riddles":# Riddle Challenge mini-game 
+                useful.colored_text("Troll:'Welcome to the Riddle Challenge!'", "green")
+                useful.colored_text("Troll:'I will ask you three riddles.'", "green")
+                useful.colored_text("Troll:'Choose the correct answer from the given options or die.'", "green")
+                
+                score = 0
+                
+                # Asks riddle questions.
+                for riddle in riddles:
+                    useful.colored_text("Troll:'"+ riddle['question'] + "'","green")
+                    for option in riddle['options']:
+                        useful.print_pause(option)
+                    
+                    answer = input("Your answer (1,2,3): ").strip().upper()
+                    
+                    if answer == riddle['answer']:
+                        useful.colored_text("Troll:'Correct!'", "green")
+                        score += 1
+                    else:
+                        useful.colored_text("'The troll is not pleased with your answer!'", "yellow")
+                        useful.fight()
+                        game_phase = "end"
 
-                    question1 = random.choice(["What is the capital city of Japan?","Who is the author of the Harry Potter book series?","Which planet is known as the Red Planet?"])
-                    useful.colored_text("Troll:'"+question1+"'","green")
-                    if question1 == "What is the capital city of Japan?":
-                        useful.print_pause("(1)Tokyo.")
-                        useful.print_pause("(2)Kyoto.")
-                        useful.print_pause("(3)Mushroom Kingdom.")
-                        answer = input("(1/2/3): ").lower()
-                        if answer == "1":
-                            pass
-                        elif answer == "2":
-                            pass
-                        elif answer == "3":
-                            pass
-                        else:
-                            pass
-                    elif question1 == "Who is the author of the Harry Potter book series?":
-                        useful.print_pause("(1)J.K. Rowling.")
-                        useful.print_pause("(2)Stephen King.")
-                        useful.print_pause("(3)Dumbledore the Wizard.")
-                        answer = input("(1/2/3): ").lower()
-                        if answer == "1":
-                            pass
-                        elif answer == "2":
-                            pass
-                        elif answer == "3":
-                            pass
-                        else:
-                            pass
-                    elif question1 == "Which planet is known as the Red Planet?":
-                        useful.print_pause("(1)Mars.")
-                        useful.print_pause("(2)Venus.")
-                        useful.print_pause("(3)Strawberry.")
-                        answer = input("(1/2/3): ").lower()
-                        if answer == "1":
-                            pass
-                        elif answer == "2":
-                            pass
-                        elif answer == "3":
-                            pass
-                        else:
-                            pass
+                    if score >= 3:
+                        useful.colored_text("Troll:'You win I'll leave the village alone.'","green")
+                        useful.colored_text("'You leave the troll's cave and collect the quest reward,'","yellow")
+                        useful.colored_text("'You go to eat before going onto the next job.'","yellow")
+                        game_phase = "end"
+
             elif game == "fruit catch":
-                pass
+                useful.colored_text("Troll:'In this I will throw fruit at you.'","green")
+                useful.colored_text("Troll:'And you will try and catch it'","green")
+                useful.colored_text("Troll:'Okay,ready...'","green")
+                useful.colored_text("Troll:'GO!'","green")
+
+                score = 0
+
+                for i in range(3):
+                    useful.colored_text("'The troll throws a fruit at you hit enter when the light is green.'","yellow")
+                    time.sleep(random.randint(1,10))
+                    start_time = time.time()
+                    useful.colored_text("'NOW!'","light green")
+                    input()
+                    end_time = time.time()
+                    if abs(end_time-start_time) >= 2:
+                        useful.colored_text("'You don't catch the fruit and it hits you on the head and breaks your skull.'","yellow")
+                        game_phase = "end"
+                    else:
+                        useful.colored_text("'You catch the fruit.'","yellow")
+                        score += 1
+
+                    if score >= 3:
+                        useful.colored_text("Troll:'You win I'll leave the village alone.'","green")
+                        useful.colored_text("'You leave the troll's cave and collect the quest reward,'","yellow")
+                        useful.colored_text("'You go to eat before going onto the next job.'","yellow")
+                        game_phase = "end"
+
             elif game == "taxes":
                 pass
 

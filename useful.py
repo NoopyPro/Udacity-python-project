@@ -94,3 +94,25 @@ def colored_text(string: str, color: str):
     else:
         print(string + colors.END)
     time.sleep(1.6)
+
+# Code for attacking.
+def fight():
+    colored_text("'The troll raises his fist to attack what do you do?'","yellow")
+    print_pause("(1)Dodge.")
+    print_pause("(2)Attack with the small knife.")
+    print_pause("(3)Run.")
+    answer = input("(1,2,3): ").lower()
+    if answer == "1":
+        colored_text("'You attempt to dodge the troll's attack'","yellow")
+        colored_text("'But it's too big and your crushed and die instantly.'","yellow")
+    elif answer == "2":
+        colored_text("'You swing your knife with all of your strength'","yellow")
+        colored_text("'But it breaks not making a dent and you're crushed.'","yellow")
+    elif answer == "3":
+        colored_text("'You turn around and run'","yellow")
+        colored_text("'And you manage to leave the troll's cave'","yellow")
+        colored_text("'You return to the village'","yellow")
+        colored_text("'But instead of a warm welcome you're faced with a trial to be executed.'","yellow")
+        colored_text("'days later you are executed due to leaving the quest you had accepted'","yellow")
+    else:
+        colored_text("'You're crushed and die instantly.'","yellow")
