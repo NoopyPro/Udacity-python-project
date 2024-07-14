@@ -34,7 +34,7 @@ class colors:
 def print_pause(string:str):
     print("")
     print(string)
-    time.sleep(1.6)
+    time.sleep(2)
 
 def colored_text(string: str, color: str):
     print("")
