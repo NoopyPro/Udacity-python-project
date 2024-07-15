@@ -114,6 +114,7 @@ def main_game():
                     if abs(end_time-start_time) >= 2:
                         useful.colored_text("'You don't catch the fruit and it hits you on the head and breaks your skull.'","yellow")
                         game_phase = "end"
+                        break
                     else:
                         useful.colored_text("'You catch the fruit.'","yellow")
                         score += 1
