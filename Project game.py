@@ -37,7 +37,7 @@ def main_game():
     game_phase = "number Q"
     game_running = True
     game = random.choice(["riddles","fruit catch","taxes"])
-    game = "fruit catch"
+    game = "riddles"
 
     # Main game loop.
     while game_running == True:
@@ -89,6 +89,7 @@ def main_game():
                         useful.colored_text("'The troll is not pleased with your answer!'", "yellow")
                         useful.fight()
                         game_phase = "end"
+                        break
 
                     if score >= 3:
                         useful.colored_text("Troll:'You win I'll leave the village alone.'","green")
@@ -125,7 +126,38 @@ def main_game():
                         game_phase = "end"
 
             elif game == "taxes":
-                pass
+                useful.colored_text("Troll:'Time to talk taxes!'","green")
+                useful.colored_text("Troll:'You owe me 100 gold coins as tax for passing through my territory.'","green")
+                
+                useful.print_pause("You check your inventory and see you have:")
+                useful.print_pause("- 80 gold coins")
+                useful.print_pause("- A valuable gem worth 50 gold coins")
+                useful.print_pause("- A magic potion worth 100 gold coins")
+
+                useful.colored_text("Troll:'Choose how you will pay your taxes:'", "green")
+                useful.print_pause("(1) 80 gold coins")
+                useful.print_pause("(2) Valuable gem worth 50 gold coins")
+                useful.print_pause("(3) Magic potion worth 100 gold coins")
+
+                answer = input("Your choice (1, 2, 3): ").strip().lower()
+
+                if answer == "1":
+                    useful.colored_text("Troll:'You're short by 20 gold coins. Pay up!'","green")
+                    useful.fight()
+                    game_phase = "end"
+                elif answer == "2":
+                    useful.colored_text("Troll:'That's not enough! You're trying to trick me.'","green")
+                    useful.fight()
+                    game_phase = "end"
+                elif answer == "3":
+                    useful.colored_text("Troll:'Very well, that potion will do. You may pass.'","green")
+                    useful.colored_text("'You leave the troll's cave and collect the quest reward,'","yellow")
+                    useful.colored_text("'You go to eat before going onto the next job.'","yellow")
+                    game_phase = "end"
+                else:
+                    useful.colored_text("Troll:'I don't have all day. Choose now!'","green")
+                    useful.fight()
+                    game_phase = "end"
 
         # Plays this code at the end of the game.
         elif game_phase == "end":
