@@ -37,7 +37,6 @@ def main_game():
     game_phase = "number Q"
     game_running = True
     game = random.choice(["riddles","fruit catch","taxes"])
-    game = "riddles"
 
     # Main game loop.
     while game_running == True:

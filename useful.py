@@ -31,11 +31,13 @@ class colors:
     CROSSED = "\033[9m"
     END = "\033[0m"  # Reset to default color
 
+# Prints entered string with a pause.
 def print_pause(string:str):
     print("")
     print(string)
     time.sleep(2)
 
+# Prints enteres string with a pause and colour.
 def colored_text(string: str, color: str):
     print("")
     color = color.lower()
