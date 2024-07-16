@@ -37,6 +37,7 @@ def main_game():
     game_phase = "number Q"
     game_running = True
     game = random.choice(["riddles","fruit catch","taxes"])
+    game = "taxes"
 
     # Main game loop.
     while game_running == True:
@@ -167,7 +168,7 @@ def main_game():
             answer = input("(1/2): ").lower()
             if answer == "1":
                 useful.colored_text("'Okay let's play.'","light grey")
-                game = random.choice(["questionare","fruit catch","taxes"])
+                game = random.choice(["riddles","fruit catch","taxes"])
                 game_phase = "number Q"
             elif answer == "2":
                 print("'okay.'")

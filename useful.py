@@ -1,5 +1,4 @@
 import time
-import random
 
 # ANSI color codes for foreground text colors
 class colors:
