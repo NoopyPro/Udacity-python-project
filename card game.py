@@ -28,7 +28,7 @@ def introduction():
     print_pause("'but I cannot choose the same number 2 times in a row'")
     print_pause("'you gain points by guessing right'")
     print_pause("'and lose points by guessing wrong'")
-    print_pause("'You have 3 things to help you'")
+    print_pause("'You have 2 things to help you'")
     print_pause("'The 'White flag' skips your turn and changes my choice,'")
     print_pause("'And the 'Double-edged knife' allows gaining 2 points'")
     print_pause("'if you guess right but you'll lose if you guess wrong.'")
@@ -113,6 +113,8 @@ def main_game():
                     print("'Hopefully you'll play again.'")
                     time.sleep(2)
                     exit()
+            else:
+                print("Please input 1,2 or 3.")
     
     # If the player wins
     print_pause("'Okay, you won! Good game, son.'")
