@@ -75,6 +75,7 @@ def main_game():
             dad_choice = random.choice(["1", "2", "3", "4"])
         last_choice = dad_choice
         
+        print("'" + str(5 - player_score) + " more right guesses and you win'")
         print_pause("'What do you do?'")
         
         player_turn = True
@@ -127,8 +128,7 @@ def main_game():
         elif player_command in ["no", "n"]:
             exit()
         else:
-            print_pause("'Okay...let's just get ice cream.'")
-            exit()
+            print_pause("'Please tell me if you want to play again'")
 
 # Start the game by calling the main_game function
 main_game()
