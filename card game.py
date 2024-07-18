@@ -75,7 +75,7 @@ def main_game():
             dad_choice = random.choice(["1", "2", "3", "4"])
         last_choice = dad_choice
         
-        print("'You have guessed right " + str( player_score) + " times.'")
+        print("Your score is " + str( player_score))
         print_pause("'What do you do?'")
         
         player_turn = True
